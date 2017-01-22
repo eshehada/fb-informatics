@@ -1,0 +1,30 @@
+from collections import Counter
+
+names = ['Annie.txt', 'Christian.txt','Emile.txt','Joyce.txt','Manish.txt','Sam.txt','Tammy.txt','Zheng.txt']
+months = ['Jan', 'Feb', 'Mar', 'Apr', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+totalLines = []
+contributionLines = []
+
+
+##for q in names:
+##    person = open(q, 'r')
+
+person = open('Annie.txt', 'r')
+
+for line in person:
+    x = ''   
+    if line[0:3] in months:
+        x += line[0:6]        
+        contributionLines.append(x)
+        totalLines.append(x)
+    else:
+        totalLines.append(totalLines[-1])
+
+print('\n' + str(person.name) + ' Total Lines' + '\n')
+print(Counter(totalLines))
+print(len(totalLines)) 
+print('\n' + str(person.name) + ' Contribution Lines' + '\n')
+print(Counter(contributionLines)) #prints 'responses' (some contributions are more than one line)
+print(len(contributionLines))
+
+
